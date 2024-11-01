@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+    <title>Review Scrapper</title>
+</head>
+
+<body>
+    {% if review_list %}
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Rating</th>
+                <th>Content</th>
+                <th>Author</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in review_list %}
+            <tr>
+                <td>{{ item['Title'] }}</td>
+                <td>{{ item['Rating'] }}</td>
+                <td>{{ item['Content'] }}</td>
+                <td>{{ item['Author'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="no-result">Found nothing</p>
+    {% endif %}
+</body>
+
+</html>
